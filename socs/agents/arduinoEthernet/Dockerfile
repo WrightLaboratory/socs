@@ -1,5 +1,4 @@
-# OCS Barebones Agent
-# ocs Agent for demonstrating how to write an Agent
+# OCS Arduino Agent
 
 # Use ocs base image
 FROM simonsobs/ocs:latest
