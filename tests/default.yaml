@@ -10,6 +10,11 @@ hub:
 hosts:
   localhost: {
     'agent-instances': [
+      {'agent-class': 'ArduinoAgent', 
+       'instance-id': 'arduino1', 
+       'arguments': [['--mode', 'ready-arduino'], 
+                     ['--ip-address', '192.168.1.2'], 
+                     ['--port', 80]]},
       {'agent-class': 'Lakeshore372Agent',
        'instance-id': 'LSASIM',
        'arguments': [['--serial-number', 'LSASIM'],

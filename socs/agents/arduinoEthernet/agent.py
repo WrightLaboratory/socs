@@ -151,7 +151,7 @@ def main(args=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--ip-address', type=str, default='192.168.1.2', help="Arduino IP")
     parser.add_argument('--port', type=int, default=80, help="Arduino Server Port")
-    parser.add_argument('--mode', type=str, default='countarduino', choices=['idle', 'countarduino'])
+    parser.add_argument('--mode', type=str, default='ready-arduino', choices=['idle', 'ready-arduino'])
 
     args = site_config.parse_args(agent_class='ArduinoAgent', parser=parser, args=args)
 
@@ -162,7 +162,7 @@ def main(args=None):
     bridge = ArduinoSerialBridge(agent, ip_address=ip_addr, port=port_num)
 
     # Register both the on-demand action task and the looping process
-    agent.register_task('countarduino', bridge.set_pin_state)
+    agent.register_task('ready-arduino', bridge.set_pin_state)
     agent.register_process('sampling', bridge.start_sampling, bridge.stop_sampling)
     
     runner.run(agent, auto_reconnect=True)
