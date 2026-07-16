@@ -13,7 +13,6 @@ WORKDIR /app/agents/arduino/
 COPY . .
 
 # Run registry on container startup
-#ENTRYPOINT ["dumb-init", "ocs-agent-cli"]
 ENTRYPOINT ["python3", "-u", "agent.py"]
 
 # Set default commandline arguments
